@@ -20,6 +20,6 @@ jobs:
         run: |
           echo "Triggering Jenkins pipeline..."
           curl -v -u "$JENKINS_USER:$JENKINS_TOKEN" \
-               -X POST "$JENKINS_URL/job/test_pipeline?token=$JENKINS_TRIGGER_TOKEN"
+               -X POST "$JENKINS_URL/job/test_pipeline"
               
 
