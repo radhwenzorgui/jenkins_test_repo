@@ -16,10 +16,14 @@ jobs:
           JENKINS_URL: ${{ secrets.JENKINS_URL }}
           JENKINS_USER: ${{ secrets.JENKINS_USER }}
           JENKINS_TOKEN: ${{ secrets.JENKINS_TOKEN }}
+          HTTP_PROXY: ""
+          HTTPS_PROXY: ""
+          http_proxy: ""
+          https_proxy: ""
           
         run: |
           echo "Triggering Jenkins pipeline..."
           curl -v -u "$JENKINS_USER:$JENKINS_TOKEN" \
-               -X POST "$JENKINS_URL/job/test_pipeline/build?token=$JENKINS_TRIGGER_TOKEN"
+               -X POST "$JENKINS_URL/job/test_pipeline/build"
               
 
