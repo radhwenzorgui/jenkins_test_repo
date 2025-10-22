@@ -17,4 +17,10 @@ pipeline {
       }
     }
   }
+
+  post {
+    success {
+      archiveArtifacts artifacts: 'main.out', fingerprint: true
+    }
+  }
 }
