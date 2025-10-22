@@ -1,20 +1,20 @@
 pipeline {
-    agent any
+  agent any
 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building the application'
-                g++ main.cpp -o main.out
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing the application'
-                chmod +x main.out
-                ./main.out
-            }
-        }
-
+  stages {
+    stage('Build') {
+      steps {
+        echo 'Building the application'
+        sh 'g++ main.cpp -o main.out'
+      }
     }
+
+    stage('Test') {
+      steps {
+        echo 'Testing the application'
+        sh 'chmod +x main.out'
+        sh './main.out'
+      }
+    }
+  }
 }
