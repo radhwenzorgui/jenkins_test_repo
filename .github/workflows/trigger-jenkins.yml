@@ -16,11 +16,11 @@ jobs:
           JENKINS_URL: ${{ secrets.JENKINS_URL }}
           JENKINS_USER: ${{ secrets.JENKINS_USER }}
           JENKINS_TOKEN: ${{ secrets.JENKINS_TOKEN }}
-          JENKINS_TRIGGER_TOKEN: ${{ secrets.JENKINS_TRIGGER_TOKEN }}
+          
         run: |
           echo "Triggering Jenkins pipeline..."
           curl -v -u "$JENKINS_USER:$JENKINS_TOKEN" \
-               -X POST "$JENKINS_URL/job/my-pipeline/buildWithParameters?token=$JENKINS_TRIGGER_TOKEN" \
+               -X POST "$JENKINS_URL/job/test_pipeline?token=$JENKINS_TRIGGER_TOKEN" \
                --data-urlencode "BRANCH=${{ github.ref_name }}" \
                --data-urlencode "COMMIT=${{ github.sha }}"
 
